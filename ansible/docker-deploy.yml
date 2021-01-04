@@ -23,5 +23,5 @@
     - name: Create  container
       docker_container:
         name: nodeapp
-        image: cloudiardocker/node-app:{{tag}}
+        image: mehmetoz74/node-app:{{tag}}
         published_ports: ["8080:8080"]
