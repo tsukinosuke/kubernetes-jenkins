@@ -6,14 +6,14 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                sh "docker build . -t cloudiardocker/nodeapp:${DOCKER_TAG}"
+                sh "docker build . -t mehmetoz74/nodeapp:${DOCKER_TAG}"
             }
         }
         stage('Push the Image to DockerHub registry') {
             steps {
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
-                    sh "docker login -u cloudiardocker -p ${dockerHubPwd}"
-                    sh "docker push cloudiardocker/nodeapp:${DOCKER_TAG}"
+                    sh "docker login -u mehmetoz74 -p ${dockerHubPwd}"
+                    sh "docker push mehmetoz74/nodeapp:${DOCKER_TAG}"
             }
                 
             }
