@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy to K8S') {
             steps {
                 sh "chmod +x changeTag.sh"
-                sh "./changeTag.sh ${DOCKER_TAG}"
+                sh "./changeTag.sh${DOCKER_TAG}"
                 sshagent(['kops-machine']) {
                 sh "scp -o StrictHostKeyChecking=no services.yml node-app-pod.yml ec2-user@54.197.43.47:/home/ec2-user/"
                 script {
